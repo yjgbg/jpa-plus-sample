@@ -1,4 +1,4 @@
-package com.github.yjgbg.jpaplussample.ctl;
+package com.github.yjgbg.jpaplussample.controller;
 
 import com.github.yjgbg.jpaplussample.SecurityUtils;
 import org.springframework.web.bind.annotation.GetMapping;

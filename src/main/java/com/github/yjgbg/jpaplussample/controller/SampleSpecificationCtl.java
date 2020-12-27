@@ -1,4 +1,4 @@
-package com.github.yjgbg.jpaplussample.service;
+package com.github.yjgbg.jpaplussample.controller;
 
 import com.github.yjgbg.jpaplussample.jpa.entity.User;
 import com.github.yjgbg.jpaplussample.jpa.repo.UserRepo;
@@ -14,7 +14,7 @@ import java.util.Optional;
 @Service
 @EnableJpaAuditing
 @RequiredArgsConstructor
-public class SampleSpecificationService {
+public class SampleSpecificationCtl {
     private final UserRepo userRepo;
 
     /**

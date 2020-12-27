@@ -1,6 +1,6 @@
-package com.github.yjgbg.jpaplussample.ctl.advice;
+package com.github.yjgbg.jpaplussample.controller.advice;
 
-import com.github.yjgbg.jpaplussample.ctl.R;
+import com.github.yjgbg.jpaplussample.controller.message.R;
 import com.github.yjgbg.jpaplussample.exceptions.BizException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.ExceptionHandler;

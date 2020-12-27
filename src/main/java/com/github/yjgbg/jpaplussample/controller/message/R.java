@@ -1,4 +1,4 @@
-package com.github.yjgbg.jpaplussample.ctl;
+package com.github.yjgbg.jpaplussample.controller.message;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AccessLevel;

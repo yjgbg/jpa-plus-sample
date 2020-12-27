@@ -4,13 +4,10 @@ import com.github.yjgbg.jpa.plus.entitySupport.ActiveEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import org.springframework.context.annotation.Lazy;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @Entity
@@ -20,6 +17,8 @@ public class Role implements ActiveEntity<Role> {
     private Long id;
     private String name;
     private String description;
+    @Version
+    private Integer version;
     @OneToOne
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
@@ -28,6 +27,11 @@ public class Role implements ActiveEntity<Role> {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<Permission> permissions = new ArrayList<>();
+
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @ManyToMany(mappedBy = "roles")
+    private List<User> users = new ArrayList<>();
 
     public Role addPermission(Permission permission) {
         permissions.add(permission);
