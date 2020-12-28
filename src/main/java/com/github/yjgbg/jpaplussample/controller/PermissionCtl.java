@@ -1,6 +1,5 @@
 package com.github.yjgbg.jpaplussample.controller;
 
-import com.github.yjgbg.jpaplussample.annotations.Security;
 import com.github.yjgbg.jpaplussample.exceptions.BizException;
 import com.github.yjgbg.jpaplussample.jpa.entity.Permission;
 import com.github.yjgbg.jpaplussample.jpa.repo.PermissionRepo;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-@Security
 @RestController
 @RequiredArgsConstructor
 public class PermissionCtl {

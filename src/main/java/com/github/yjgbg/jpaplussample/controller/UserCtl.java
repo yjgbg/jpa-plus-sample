@@ -1,7 +1,6 @@
 package com.github.yjgbg.jpaplussample.controller;
 
 import com.github.yjgbg.jpa.plus.annotations.ReturnPropsSetNull;
-import com.github.yjgbg.jpaplussample.annotations.Security;
 import com.github.yjgbg.jpaplussample.controller.message.R;
 import com.github.yjgbg.jpaplussample.exceptions.BizException;
 import com.github.yjgbg.jpaplussample.jpa.entity.Role;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Security
 @RestController
 @RequiredArgsConstructor
 public class UserCtl {
@@ -30,7 +28,7 @@ public class UserCtl {
     }
 
     @GetMapping("user/{username}")
-    @ReturnPropsSetNull({"roles","password"})
+    @ReturnPropsSetNull({"roles","password"}) // 将该字段置空
     public User getUser(@PathVariable String username) {
         return userRepo.spec()
                 .eq(User::getUsername,username)
@@ -43,7 +41,8 @@ public class UserCtl {
     public List<Role> getUserRoles(@PathVariable String username) {
         return userRepo.spec()
                 .eq(User::getUsername,username)
-                .eager(User::getRoles)
+                .eager(User::getRoles) // eager 指定该字段为饥饿加载模式，一条sql级联查出role信息
+                // 如果不启用eager加载，则会在第一次调用到getRoles的时候，在数据库再发一条sql，从而拖慢性能
                 .findOne()
                 .orElseThrow(new BizException(404,"未找到用户"))
                 .getRoles();
